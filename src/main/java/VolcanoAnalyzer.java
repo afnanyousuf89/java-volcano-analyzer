@@ -60,42 +60,53 @@ public class VolcanoAnalyzer {
 	// 1. Return the eruption with the highest number of recorded deaths.
 	public Volcano mostDeadly() {
 
-		// List<Volcano> sortedVols = volcanos.stream().sorted(new Comparator<Volcano>() {
-		// 	@Override
-		// 	public int compare(Volcano arg0, Volcano arg1) {
-		// 		// TODO Auto-generated method stub
-		// 		return Integer.parseInt(arg0.getDEATHS()) - Integer.parseInt(arg1.getDEATHS());
-		// 		// int a,b;
-		// 		// a = b = 0;
-		// 		// try{
-		// 		// 	a = Integer.parseInt(arg0.getDEATHS());
-		// 		// }
-		// 		// catch(NumberFormatException ex){
-		// 		// 	a=0;
-		// 		// }
-		// 		// try{
-		// 		// 	b = Integer.parseInt(arg1.getDEATHS());
-		// 		// }
-		// 		// catch(NumberFormatException ex){
-		// 		// 	b=0;
-		// 		// }
+		// List<Volcano> sortedVols = volcanos.stream().sorted(new Comparator<Volcano>()
+		// {
+		// @Override
+		// public int compare(Volcano arg0, Volcano arg1) {
+		// // TODO Auto-generated method stub
+		// return Integer.parseInt(arg0.getDEATHS()) -
+		// Integer.parseInt(arg1.getDEATHS());
+		// // int a,b;
+		// // a = b = 0;
+		// // try{
+		// // a = Integer.parseInt(arg0.getDEATHS());
+		// // }
+		// // catch(NumberFormatException ex){
+		// // a=0;
+		// // }
+		// // try{
+		// // b = Integer.parseInt(arg1.getDEATHS());
+		// // }
+		// // catch(NumberFormatException ex){
+		// // b=0;
+		// // }
 
-		// 		// return a-b;
-		// 	}
+		// // return a-b;
+		// }
 		// }).collect(Collectors.toList());
 
-		//List<Volcano> sortedVols = volcanos.stream().sorted(Comparator.comparing(Volcano::getDEATHS)).collect(Collectors.toList());
+		// List<Volcano> sortedVols =
+		// volcanos.stream().sorted(Comparator.comparing(Volcano::getDEATHS)).collect(Collectors.toList());
 
-		//List<Volcano> volsss = volcanos.stream()
-	
-	
-		//int maxDeath = Integer.parseInt(sortedVols.get(0).getDEATHS());
+		// List<Volcano> volsss = volcanos.stream()
 
+		// int maxDeath = Integer.parseInt(sortedVols.get(0).getDEATHS());
 
 		Volcano vols = volcanos.stream()
 				.filter(volcano -> volcano.getDEATHS().equals("30000"))
 				.collect(Collectors.toList()).get(0);
 		return vols;
+	}
+
+	//1. Return the percentage of eruptions that caused tsunamis.
+	public double causedTsunami() {
+		double allVols = volcanos.size();
+		double volsTsu = volcanos.stream()
+				.filter(volcano -> !volcano.getTsu().equals(""))
+				.collect(Collectors.toList()).size();
+		return volsTsu * 100 / allVols;
+
 	}
 
 }
