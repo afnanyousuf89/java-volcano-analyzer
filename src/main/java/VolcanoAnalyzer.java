@@ -31,4 +31,13 @@ public class VolcanoAnalyzer {
 
     //add methods here to meet the requirements in README.md
 
+    public List<Volcano> eruptedInEighties(){
+        List<Volcano> vols = volcanos.stream()
+        .filter(volcano -> volcano.getYear() >= 1980)
+        .filter(volcano -> volcano.getYear() < 1990)
+        .toList();
+        return vols;
+    }
+
+
 }
