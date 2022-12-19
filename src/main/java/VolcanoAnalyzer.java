@@ -99,7 +99,7 @@ public class VolcanoAnalyzer {
 		return vols;
 	}
 
-	//1. Return the percentage of eruptions that caused tsunamis.
+	// 1. Return the percentage of eruptions that caused tsunamis.
 	public double causedTsunami() {
 		double allVols = volcanos.size();
 		double volsTsu = volcanos.stream()
@@ -109,4 +109,12 @@ public class VolcanoAnalyzer {
 
 	}
 
+	// 1. Return the most common type of volcano in the set.
+	public String mostCommonType() {
+
+		List<String> vols = volcanos.stream().map(x -> x.getType()).distinct().collect(Collectors.toList());
+		
+
+		return "";
+	}
 }
